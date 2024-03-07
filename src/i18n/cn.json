@@ -1,0 +1,57 @@
+{
+  "label": {
+    "error": "错误",
+    "warning": "警告",
+    "sigin": "登录",
+    "sigout": "登出",
+    "create": "新建{0}",
+    "delete": "删除{0}",
+    "edit": "编辑{0}",
+    "save": "保存",
+    "confirm": "确认",
+    "cancel": "取消",
+    "name": "名称",
+    "group": "分组",
+    "desc": "描述",
+    "createdAt": "创建时间",
+    "keyword": "关键字",
+    "search": "查询",
+    "enable": "启用",
+    "disable": "禁用",
+    "add": "添加",
+    "permission": "权限",
+    "role": "角色",
+    "account": "账户",
+    "menu": "菜单",
+    "position": "位置",
+    "pos_left": "左侧",
+    "pos_top": "顶部",
+    "link": "链接",
+    "icon": "图标",
+    "auth": "授权",
+    "amount": "{0}数量",
+    "delete_confirm": "请输入 {0}"
+  },
+  "account": {
+    "username": "账号",
+    "password": "密码",
+    "nickname": "昵称",
+    "phone": "电话",
+    "profile": "个人信息"
+  },
+  "password_update": {
+    "title": "更改密码",
+    "old": "旧密码",
+    "new": "新密码",
+    "confirm": "再次输入"
+  },
+  "rule": {
+    "required": "请输入{0}",
+    "min": "最小长度 {0}",
+    "max": "最大长度 {0}",
+    "len": "需要长度 {0}",
+    "neq": "与 {0} 不匹配",
+    "prefix": "需要 {0} 前缀",
+    "format": "格式不正确"
+  }
+}
