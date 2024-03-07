@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDashboard } from '@/composables/useDashboard'
+import { useDashboard } from '@/system/composables/useDashboard'
 import { storeToRefs } from 'pinia'
 
 const dash = useDashboard()

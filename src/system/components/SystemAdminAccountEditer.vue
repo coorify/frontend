@@ -25,11 +25,11 @@
 
 <script setup lang="ts">
 import { computed, nextTick, reactive, ref } from 'vue'
-import { Expose as DrawerExpose } from '@/components/IDrawer.vue'
+import { Expose as DrawerExpose } from '@/system/components/IDrawer.vue'
 import { ElInput, ElMessage } from 'element-plus';
-import { useService } from '@/composables/useService';
+import { useService } from '@/system/composables/useService';
 import { useArrayDifference } from '@vueuse/core';
-import { useDashboard } from '@/composables/useDashboard';
+import { useDashboard } from '@/system/composables/useDashboard';
 import { storeToRefs } from 'pinia';
 
 export interface Expose {

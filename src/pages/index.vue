@@ -30,11 +30,11 @@
 </template>
 
 <script setup lang="ts">
-import { Menu, useDashboard } from '@/composables/useDashboard';
+import { Menu, useDashboard } from '@/system/composables/useDashboard';
 import { useNow } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
 import { computed } from 'vue'
-import { useTimeFormat, useDateFormat } from '@/composables/useDateFormat'
+import { useTimeFormat, useDateFormat } from '@/system/composables/useDateFormat'
 
 const now = useNow()
 

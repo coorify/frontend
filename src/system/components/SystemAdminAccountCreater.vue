@@ -24,10 +24,10 @@
 <script setup lang="ts">
 import { ref, reactive, toRef, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { Expose as DrawerExpose } from '@/components/IDrawer.vue'
+import { Expose as DrawerExpose } from '@/system/components/IDrawer.vue'
 import { FormInstance, FormRules, ElMessage } from 'element-plus';
-import { useService } from '@/composables/useService';
-import { useBase64 } from '@/composables/useBase64';
+import { useService } from '@/system/composables/useService';
+import { useBase64 } from '@/system/composables/useBase64';
 
 interface Model {
   username: string

@@ -39,8 +39,9 @@
       <el-pagination v-if="query.size < reply?.total" v-model:current-page="query.page" background
         layout="prev, pager, next" :total="reply.total" :page-size="query.size" @current-change="execute(true)" />
     </div>
-    <admin-permission-creater ref="creater" @done="onSearch"></admin-permission-creater>
-    <i-deleter :title="$t('label.delete', [$t('label.permission')])" ref="deleter" @done="onDelete"></i-deleter>
+    <system-admin-permission-creater ref="creater" @done="onSearch"></system-admin-permission-creater>
+    <system-deleter :title="$t('label.delete', [$t('label.permission')])" ref="deleter"
+      @done="onDelete"></system-deleter>
   </div>
 </template>
 
@@ -48,10 +49,10 @@
 import { reactive, ref, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
 import { ElMessage } from 'element-plus';
-import { Expose as CreaterExpose } from '@/components/AdminPermissionCreater.vue'
-import { Expose as DeleterExpose } from '@/components/IDeleter.vue'
-import { useService } from '@/composables/useService';
-import { useDateTimeFormat } from '@/composables/useDateFormat';
+import { Expose as CreaterExpose } from '@/system/components/SystemAdminPermissionCreater.vue'
+import { Expose as DeleterExpose } from '@/system/components/SystemDeleter.vue'
+import { useService } from '@/system/composables/useService';
+import { useDateTimeFormat } from '@/system/composables/useDateFormat';
 
 const service = useService()
 

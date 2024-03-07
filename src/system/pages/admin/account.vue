@@ -61,8 +61,8 @@
       <el-pagination v-if="query.size < reply?.total" v-model:current-page="query.page" background
         layout="prev, pager, next" :total="reply.total" :page-size="query.size" @current-change="execute(true)" />
     </div>
-    <admin-account-creater ref="creater" @done="onSearch"></admin-account-creater>
-    <admin-account-editer ref="editer" @done="execute(true)"></admin-account-editer>
+    <system-admin-account-creater ref="creater" @done="onSearch"></system-admin-account-creater>
+    <system-admin-account-editer ref="editer" @done="execute(true)"></system-admin-account-editer>
   </div>
 </template>
 
@@ -70,10 +70,10 @@
 import { onMounted, reactive, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 import { ElMessage } from 'element-plus';
-import { Expose as CreaterExpose } from '@/components/AdminAccountCreater.vue'
-import { Expose as EditerExpose } from '@/components/AdminAccountEditer.vue'
-import { useService } from '@/composables/useService';
-import { useDateTimeFormat } from '@/composables/useDateFormat';
+import { Expose as CreaterExpose } from '@/system/components/SystemAdminAccountCreater.vue'
+import { Expose as EditerExpose } from '@/system/components/SystemAdminAccountEditer.vue'
+import { useService } from '@/system/composables/useService';
+import { useDateTimeFormat } from '@/system/composables/useDateFormat';
 
 const service = useService()
 

@@ -1,5 +1,6 @@
 <template>
-  <i-drawer :title="$t('label.create', [$t('label.permission')])" :show-confirm="true" ref="drawer" @confirm="onConfirm">
+  <i-drawer :title="$t('label.create', [$t('label.permission')])" :show-confirm="true" ref="drawer"
+    @confirm="onConfirm">
     <el-form label-width="auto" ref="form" :model="model" :rules="rules">
       <el-form-item :label="$t('label.name')" prop="value">
         <el-input v-model="model.value"></el-input>
@@ -20,8 +21,8 @@
 import { ref, reactive, computed } from 'vue';
 import { useI18n } from "vue-i18n"
 import { type FormRules, type FormInstance, ElMessage } from 'element-plus';
-import { Expose as DrawerExpose } from '@/components/IDrawer.vue'
-import { useService } from '@/composables/useService';
+import { Expose as DrawerExpose } from '@/system/components/IDrawer.vue'
+import { useService } from '@/system/composables/useService';
 
 
 export interface Expose {

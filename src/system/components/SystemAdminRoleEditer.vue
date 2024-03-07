@@ -10,11 +10,11 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { Expose as DrawerExpose } from '@/components/IDrawer.vue'
-import { useService } from '@/composables/useService';
+import { Expose as DrawerExpose } from '@/system/components/IDrawer.vue'
+import { useService } from '@/system/composables/useService';
 import { TreeInstance, ElMessage } from 'element-plus'
 import { useArrayDifference } from '@vueuse/core';
-import { useDashboard } from '@/composables/useDashboard';
+import { useDashboard } from '@/system/composables/useDashboard';
 import { storeToRefs } from 'pinia';
 
 export interface Expose {

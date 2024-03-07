@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDashboard } from '@/composables/useDashboard'
+import { useDashboard } from '@/system/composables/useDashboard'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue';
 
@@ -71,4 +71,4 @@ const { left, openeds } = storeToRefs(dash)
     display: none !important;
   }
 }
-</style>@/composables/useDashboard
+</style>

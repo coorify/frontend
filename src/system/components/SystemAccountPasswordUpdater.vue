@@ -15,7 +15,7 @@
         <el-form-item>
           <div class="w-full flex justify-end">
             <el-button :disabled="model.old == model.new" type="primary" @click="onSave">{{ $t('label.save')
-            }}</el-button>
+              }}</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -27,8 +27,8 @@
 import { type FormRules, type FormInstance, ElMessage } from 'element-plus';
 import { useI18n } from "vue-i18n"
 import { reactive, ref } from 'vue';
-import { useService } from '@/composables/useService'
-import { useBase64 } from '@/composables/useBase64';
+import { useService } from '@/system/composables/useService'
+import { useBase64 } from '@/system/composables/useBase64';
 import { toRef, computed } from 'vue';
 
 interface Model {

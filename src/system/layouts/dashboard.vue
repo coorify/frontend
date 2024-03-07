@@ -6,7 +6,7 @@
         <div @click="dash.navTo('/')" class="w-full h-full bg-no-repeat bg-center bg-[url(@/assets/index_logo.svg)]">
         </div>
       </div>
-      <menu-left :collapse="collapse" class="remove-menu-border"></menu-left>
+      <system-menu-left :collapse="collapse" class="remove-menu-border"></system-menu-left>
     </el-aside>
     <el-container>
       <el-header class="!h-28 !px-0 flex flex-col bg-white border-b border-b-[var(--el-menu-border-color)]">
@@ -20,7 +20,7 @@
             <span @click="dash.navTo('/')" class="font-bold text-xl cursor-pointer">{{ env.VITE_APP_NAME }}</span>
           </div>
           <div class="flex-grow flex justify-end items-center">
-            <menu-top></menu-top>
+            <system-menu-top></system-menu-top>
           </div>
           <div class="h-full flex items-center remove-menu-border">
             <el-menu mode="horizontal" :ellipsis="false" class="py-1 !h-13">
@@ -51,8 +51,8 @@
 </template>
 
 <script setup lang="ts">
-import { useDashboard } from '@/composables/useDashboard';
-import { useService } from '@/composables/useService';
+import { useDashboard } from '@/system/composables/useDashboard';
+import { useService } from '@/system/composables/useService';
 import { storeToRefs } from 'pinia';
 import { onMounted } from 'vue';
 import { Icon } from '@iconify/vue';

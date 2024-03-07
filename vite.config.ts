@@ -19,16 +19,33 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    Layouts(),
+    Layouts({
+      layoutsDirs: ['src/layouts', 'src/system/layouts'],
+      pagesDirs: ['src/pages', 'src/system/pages']
+    }),
     Icons({ autoInstall: true }),
     AutoImport({
       resolvers: [ElementPlusResolver()]
     }),
     Components({
+      directoryAsNamespace: true,
+      dirs: ['src/components', 'src/system/components'],
       resolvers: [ElementPlusResolver(), IconsResolver()]
     }),
     VueDevTools(),
-    VueRouter({})
+    VueRouter({
+      routesFolder: [
+        'src/pages',
+        {
+          src: 'src/system/pages',
+          path (file) {
+            const prefix = 'src/system/pages'
+            const pt = file.slice(file.lastIndexOf(prefix) + prefix.length)
+            return `system${pt}`
+          }
+        }
+      ]
+    })
   ],
   base: './'
 })

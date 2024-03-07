@@ -13,10 +13,10 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
-import { Expose as DrawerExpose } from '@/components/IDrawer.vue'
+import { Expose as DrawerExpose } from '@/system/components/IDrawer.vue'
 import { FormInstance, FormRules, ElMessage } from 'element-plus';
 import { useI18n } from 'vue-i18n';
-import { useService } from '@/composables/useService';
+import { useService } from '@/system/composables/useService';
 
 interface Model {
   name: string

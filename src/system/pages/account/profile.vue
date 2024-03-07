@@ -20,14 +20,14 @@
       </el-descriptions>
     </div>
     <div class="w-full bg-white px-4 py-4 mt-8">
-      <account-password-updater></account-password-updater>
+      <system-account-password-updater></system-account-password-updater>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useService } from '@/composables/useService';
-import { useDateTimeFormat } from '@/composables/useDateFormat'
+import { useService } from '@/system/composables/useService';
+import { useDateTimeFormat } from '@/system/composables/useDateFormat'
 import { onMounted } from 'vue';
 
 const service = useService()

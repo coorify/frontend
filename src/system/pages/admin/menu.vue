@@ -67,19 +67,19 @@
       <el-pagination v-if="query.size < reply?.total" v-model:current-page="query.page" background
         layout="prev, pager, next" :total="reply.total" :page-size="query.size" @current-change="execute(true)" />
     </div>
-    <admin-menu-creater ref="creater" @done="onSearch"></admin-menu-creater>
-    <i-deleter :title="$t('label.delete', [$t('label.menu')])" ref="deleter" @done="onDelete"></i-deleter>
+    <system-admin-menu-creater ref="creater" @done="onSearch"></system-admin-menu-creater>
+    <system-deleter :title="$t('label.delete', [$t('label.menu')])" ref="deleter" @done="onDelete"></system-deleter>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, ref, reactive } from 'vue';
 import { Icon } from '@iconify/vue';
 import { ElMessage } from 'element-plus';
-import { Expose as CreaterExpose } from '@/components/AdminMenuCreater.vue'
-import { Expose as DeleterExpose } from '@/components/IDeleter.vue'
-import { useService } from '@/composables/useService';
-import { useDateTimeFormat } from '@/composables/useDateFormat';
+import { Expose as CreaterExpose } from '@/system/components/SystemAdminMenuCreater.vue'
+import { Expose as DeleterExpose } from '@/system/components/SystemDeleter.vue'
+import { useService } from '@/system/composables/useService';
+import { useDateTimeFormat } from '@/system/composables/useDateFormat';
 
 const service = useService()
 

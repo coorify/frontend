@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Directive, DirectiveBinding } from 'vue'
-import { useService } from '@/composables/useService'
+import { useService } from '@/system/composables/useService'
 import { pina } from '@/pinia'
 
 export const vPermission: Directive = {

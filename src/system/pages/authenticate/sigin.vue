@@ -33,13 +33,12 @@
 
 <script setup lang="ts">
 import type { FormRules, FormInstance } from 'element-plus';
-import { ref, reactive, toRef, onMounted } from "vue"
+import { ref, reactive, toRef, onMounted, computed } from "vue"
 import { useI18n } from "vue-i18n"
-import { useBase64 } from "@/composables/useBase64"
-import { useService } from '@/composables/useService'
-import { useCookie } from '@/composables/useCookie';
+import { useBase64 } from "@/system/composables/useBase64"
+import { useService } from '@/system/composables/useService'
+import { useCookie } from '@/system/composables/useCookie';
 import { useRouter } from 'vue-router'
-import { computed } from 'vue';
 
 interface Model {
   username: string

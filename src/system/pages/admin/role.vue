@@ -51,9 +51,9 @@
       <el-pagination v-if="query.size < reply?.total" v-model:current-page="query.page" background
         layout="prev, pager, next" :total="reply.total" :page-size="query.size" @current-change="execute(true)" />
     </div>
-    <admin-role-creater ref="creater" @done="onSearch"></admin-role-creater>
-    <admin-role-editer ref="editer" @done="execute(true)"></admin-role-editer>
-    <i-deleter :title="$t('label.delete', [$t('label.role')])" ref="deleter" @done="onDelete"></i-deleter>
+    <system-admin-role-creater ref="creater" @done="onSearch"></system-admin-role-creater>
+    <system-admin-role-editer ref="editer" @done="execute(true)"></system-admin-role-editer>
+    <system-deleter :title="$t('label.delete', [$t('label.role')])" ref="deleter" @done="onDelete"></system-deleter>
   </div>
 </template>
 
@@ -61,12 +61,12 @@
 import { onMounted, reactive, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 import { ElMessage } from 'element-plus';
-import { Expose as CreaterExpose } from '@/components/AdminRoleCreater.vue'
-import { Expose as EditerExpose } from '@/components/AdminRoleEditer.vue'
-import { Expose as DeleterExpose } from '@/components/IDeleter.vue'
-import { useService } from '@/composables/useService';
-import { useDateTimeFormat } from '@/composables/useDateFormat';
-import { useDashboard } from '@/composables/useDashboard';
+import { Expose as CreaterExpose } from '@/system/components/SystemAdminRoleCreater.vue'
+import { Expose as EditerExpose } from '@/system/components/SystemAdminRoleEditer.vue'
+import { Expose as DeleterExpose } from '@/system/components/SystemDeleter.vue'
+import { useService } from '@/system/composables/useService';
+import { useDateTimeFormat } from '@/system/composables/useDateFormat';
+import { useDashboard } from '@/system/composables/useDashboard';
 import { storeToRefs } from 'pinia';
 
 const service = useService()
