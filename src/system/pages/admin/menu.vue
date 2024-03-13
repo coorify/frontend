@@ -52,9 +52,9 @@
         <el-table-column align="right">
 
           <template #default="scope">
-            <el-button size="small" :type="scope.row.status == 0 ? 'success' : 'info'"
-              @click="onUpdateStatus(scope.row)">
-              <span>{{ $t(scope.row.status == 0 ? 'label.enable' : 'label.disable') }}</span>
+            <el-button size="small" :type="state.isEnable(scope.row.status) ? 'success' : 'info'"
+              @click="onUpdateStatus(scope.row, state.ENABLE)">
+              <span>{{ $t(state.isEnable(scope.row.status) ? 'label.enable' : 'label.disable') }}</span>
             </el-button>
             <el-button size="small" type="danger" @click="deleter?.show(scope.row, 'name')">
               <span>{{ $t('label.delete') }}</span>
@@ -80,8 +80,10 @@ import { Expose as CreaterExpose } from '@/system/components/SystemAdminMenuCrea
 import { Expose as DeleterExpose } from '@/system/components/SystemDeleter.vue'
 import { useService } from '@/system/composables/useService';
 import { useDateTimeFormat } from '@/system/composables/useDateFormat';
+import { useStatus } from '@/system/composables/useStatus';
 
 const service = useService()
+const state = useStatus()
 
 const creater = ref<CreaterExpose>()
 const deleter = ref<DeleterExpose>()
@@ -109,9 +111,9 @@ const onDelete = async (raw: any) => {
   await onSearch()
 }
 
-const onUpdateStatus = async (raw: any) => {
-  const nstatus = raw.status == 1 ? 0 : 1
-  const { data } = await service.admin.menu.status.update({ uuid: raw.uuid, status: nstatus })
+const onUpdateStatus = async (raw: any, mask: number) => {
+  const enable = !((raw.status & mask) == mask)
+  const { data } = await service.admin.menu.status.update({ uuid: raw.uuid, status: mask, enable })
   await ElMessage.success({
     message: data.value.message
   })

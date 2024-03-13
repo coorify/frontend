@@ -6,8 +6,26 @@ import { pina } from '@/pinia'
 export const vPermission: Directive = {
   mounted (el: HTMLElement, bd: DirectiveBinding) {
     const perm = usePermission(pina)
-    if (bd.value && !perm.has(bd.value)) {
-      el.parentNode?.removeChild(el)
+    if (bd.value) {
+      const style = el.style as any
+      if (!perm.has(bd.value)) {
+        style.beforeDisplay = style.display
+        style.display = 'none'
+      } else {
+        style.display = style.beforeDisplay
+      }
+    }
+  },
+  updated (el: HTMLElement, bd: DirectiveBinding) {
+    const perm = usePermission(pina)
+    if (bd.value) {
+      const style = el.style as any
+      if (!perm.has(bd.value)) {
+        style.beforeDisplay = style.display
+        style.display = 'none'
+      } else {
+        style.display = style.beforeDisplay
+      }
     }
   }
 }

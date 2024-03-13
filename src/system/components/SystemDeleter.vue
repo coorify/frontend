@@ -2,9 +2,10 @@
 <script setup lang="ts">
 import { ElMessageBox } from 'element-plus'
 import { useI18n } from 'vue-i18n';
+import get from 'lodash.get'
 
 interface Props {
-  title: string
+  title?: string
 }
 
 const i18n = useI18n()
@@ -13,15 +14,16 @@ const emits = defineEmits(['done'])
 
 
 export interface Expose {
-  show(v: any, key?: string): PromiseLike<void>
+  show(v: any, key?: string, title?: string): PromiseLike<void>
 }
 
 defineExpose<Expose>({
-  async show(v: any, key?: string) {
-    const val = key ? v[key] : v
+  async show(v: any, key?: string, title?: string) {
+
+    const val = key ? get(v, key) : v
     const msg = `<strong>${val}</strong>`
 
-    await ElMessageBox.prompt(i18n.t('label.delete_confirm', [msg]), props.title, {
+    await ElMessageBox.prompt(i18n.t('label.delete_confirm', [msg]), title ? title : props.title, {
       type: 'warning',
       dangerouslyUseHTMLString: true,
       cancelButtonText: i18n.t('label.cancel'),

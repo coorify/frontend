@@ -43,9 +43,9 @@
         <el-table-column align="right">
 
           <template #default="scope">
-            <el-button size="small" :type="scope.row.status == 0 ? 'success' : 'info'"
-              @click="onUpdateStatus(scope.row)">
-              <span>{{ $t(scope.row.status == 0 ? 'label.enable' : 'label.disable') }}</span>
+            <el-button size="small" :type="state.isEnable(scope.row.status) ? 'success' : 'info'"
+              @click="onUpdateStatus(scope.row, state.ENABLE)">
+              <span>{{ $t(state.isEnable(scope.row.status) ? 'label.enable' : 'label.disable') }}</span>
             </el-button>
             <el-button size="small" type="primary" @click="editer?.show(scope.row)">
               <span>{{ $t('label.edit') }}</span>
@@ -74,8 +74,10 @@ import { Expose as CreaterExpose } from '@/system/components/SystemAdminAccountC
 import { Expose as EditerExpose } from '@/system/components/SystemAdminAccountEditer.vue'
 import { useService } from '@/system/composables/useService';
 import { useDateTimeFormat } from '@/system/composables/useDateFormat';
+import { useStatus } from '@/system/composables/useStatus';
 
 const service = useService()
+const state = useStatus()
 
 const creater = ref<CreaterExpose>()
 const editer = ref<EditerExpose>()
@@ -92,12 +94,11 @@ const { data: reply, execute } = service.admin.account.find(query, { immediate: 
 const onSearch = async () => {
   query.page = 1
   await execute(true)
-  console.log(reply)
 }
 
-const onUpdateStatus = async (raw: any) => {
-  const nstatus = raw.status == 1 ? 0 : 1
-  const { data } = await service.admin.account.status.update({ uuid: raw.uuid, status: nstatus })
+const onUpdateStatus = async (raw: any, mask: number) => {
+  const enable = !((raw.status & mask) == mask)
+  const { data } = await service.admin.account.status.update({ uuid: raw.uuid, status: mask, enable })
   await ElMessage.success({
     message: data.value.message
   })

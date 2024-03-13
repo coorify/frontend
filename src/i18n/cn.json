@@ -53,5 +53,9 @@
     "neq": "与 {0} 不匹配",
     "prefix": "需要 {0} 前缀",
     "format": "格式不正确"
+  },
+  "status": {
+    "nodefault": "取消默认",
+    "asdefault": "设为默认"
   }
 }

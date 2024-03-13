@@ -9,7 +9,9 @@
       </template>
       <template #footer>
         <el-button @click="show = false">{{ $t("label.cancel") }}</el-button>
-        <el-button type="primary" @click="onConfirm" v-if="props.showConfirm">{{ $t("label.confirm") }}</el-button>
+        <el-button :type="props.confirmType || 'primary'" @click="onConfirm" v-if="props.showConfirm">
+          <span>{{ props.confirmText || $t("label.confirm") }}</span>
+        </el-button>
       </template>
     </el-drawer>
   </div>
@@ -20,6 +22,8 @@ import { ref } from 'vue';
 export interface Props {
   title: string
   showConfirm?: boolean
+  confirmText?: string
+  confirmType?: 'success' | 'primary'
 }
 
 export interface Expose {
